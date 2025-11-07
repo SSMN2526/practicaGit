@@ -20,7 +20,7 @@ namespace ejercicioTelegrama
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o';
             int numPalabras = 0;
             double coste;
 
@@ -30,7 +30,9 @@ namespace ejercicioTelegrama
             {
                 tipoTelegrama = 'u';
             }
-            numPalabras = textoTelegrama.Length;
+            string[] palabras = textoTelegrama.Split(' ');
+            numPalabras = palabras.Length;
+
             if (tipoTelegrama == 'o')
             {
                 if (numPalabras <= 10)
@@ -43,6 +45,7 @@ namespace ejercicioTelegrama
                 }
             }
             else
+
             {
                 if (tipoTelegrama == 'u')
                 {
