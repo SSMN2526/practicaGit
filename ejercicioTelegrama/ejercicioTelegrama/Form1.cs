@@ -20,20 +20,24 @@ namespace ejercicioTelegrama
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = 'o';
+            string tipoTelegrama = "u";
             int numPalabras = 0;
-            double coste;
+            double coste = 0;
 
             textoTelegrama = txtTelegrama.Text;
 
-            if (chkUrgente.Checked)
+            if (cbUrgente.Checked)
             {
-                tipoTelegrama = 'u';
+                tipoTelegrama = "u";
             }
-            string[] palabras = textoTelegrama.Split(' ');
+            else if (cbOrdinario.Checked)
+            {
+                tipoTelegrama = "o";
+            }
+                string[] palabras = textoTelegrama.Split(' ');
             numPalabras = palabras.Length;
 
-            if (tipoTelegrama == 'o')
+            if (tipoTelegrama == "u")
             {
                 if (numPalabras <= 10)
                 {
@@ -44,10 +48,10 @@ namespace ejercicioTelegrama
                     coste = 0.5 * numPalabras;
                 }
             }
-            else
+            else if (cbUrgente.Checked)
 
             {
-                if (tipoTelegrama == 'u')
+                if (tipoTelegrama == "o")
                 {
                     if (numPalabras <= 10)
                     {
@@ -63,7 +67,7 @@ namespace ejercicioTelegrama
                     coste = 0;
                 }
             }
-            txtPrecio.Text = coste.ToString() + " euros";
+            txtPrecio.Text = $"{coste.ToString()} euros";
         }
 
     }
